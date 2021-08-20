@@ -8,6 +8,31 @@ Cloudreve with redis的Docker版本
 
 ---
 
+部署在Okteto上
+```
+services:
+    cloudreve:
+        public: true
+        container_name: cloudreve
+        image: alex0808/cloudreve
+        ports:
+            - 5212:5212
+        volumes: 
+            - /root/cloudreve
+        environment: 
+            PORT: "5212"
+            DB_Type: "mysql"
+            DB_Host: "127.0.0.1"
+            DB_PORT: "3306"
+            DB_Name: "cloudreve"
+            DB_User: "cloudreve"
+            DB_Password: ""
+            DB_TablePrefix: "cd_"
+            DB_Charset: "utf8"
+```
+
+
+
 查看Heroku Redis + Heroku Postgres版：https://github.com/useblue/Cloudreve-Heroku/tree/Cloudreve-Heroku
 
 查看Heroku Redis + Jawsdb Mysql版：https://github.com/useblue/Cloudreve-Heroku/tree/Heroku-mysql
